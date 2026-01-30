@@ -1,4 +1,4 @@
-import React, { Edit, Trash2 } from "lucide-react";
+import { Edit, Trash2 } from "lucide-react";
 
 export interface ContextMenuProps {
   xPos: number;
