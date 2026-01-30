@@ -633,14 +633,10 @@ export async function exportPdf(
   if (typeof pdfSource === "string") {
     const response = await fetch(pdfSource);
     pdfBytes = await response.arrayBuffer();
+  } else if (pdfSource instanceof Uint8Array) {
+    pdfBytes = new Uint8Array(pdfSource).buffer as ArrayBuffer;
   } else {
-    pdfBytes =
-      pdfSource instanceof Uint8Array
-        ? pdfSource.buffer.slice(
-            pdfSource.byteOffset,
-            pdfSource.byteOffset + pdfSource.byteLength
-          )
-        : pdfSource;
+    pdfBytes = pdfSource;
   }
 
   const pdfDoc = await PDFDocument.load(pdfBytes);
