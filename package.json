@@ -49,7 +49,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "(cd ./example && vite --force)",
-    "build": "npm run clean && npm i && npm run build:esm && npm run build:copy-styles && npm run build:example && npm run build:docs",
+    "build": "npm run build:esm && npm run build:copy-styles",
     "build:vercel": "npm run build:esm && npm run build:copy-styles && npm run build:example && npm run build:docs",
     "build:esm": "tsup",
     "build:copy-styles": "cp -r ./src/style ./dist/esm",
